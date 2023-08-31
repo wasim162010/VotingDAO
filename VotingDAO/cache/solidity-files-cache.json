@@ -37,8 +37,8 @@
       ]
     },
     "/Users/wasim/Documents/GitHub/VotingDAO/VotingDAO/contracts/Ballot.sol": {
-      "lastModificationDate": 1693498644226,
-      "contentHash": "29d2a0e9e0fe2d8d3dda2b6bd18183fe",
+      "lastModificationDate": 1693500626586,
+      "contentHash": "adae5cdebafb42c041ff186aebd5649c",
       "sourceName": "contracts/Ballot.sol",
       "solcConfig": {
         "version": "0.8.4",

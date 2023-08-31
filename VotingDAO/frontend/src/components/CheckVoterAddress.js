@@ -9,7 +9,7 @@ const CheckVoterAddress = ({
 	};
 	return (
 		<div>
-			<h4>Check if an address vote status</h4>
+			<h4>Check user vote status</h4>
 			<div
 				style={{
 					width: '15em',

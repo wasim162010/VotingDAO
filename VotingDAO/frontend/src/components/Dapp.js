@@ -39,13 +39,13 @@ export const Dapp = () => {
 			_provider.getSigner(0)
 		);
 
-		console.log(_token)
+	
 			// get the proposals
 			const newProposal = await _token.getAllProposals();
-		console.log(newProposal)
+		
 			// get the chairman address
 			const newChairperson = await _token.chairperson();
-		console.log("newChairperson ", newChairperson)
+	
 		// save the token data into a hook to reuse it along the app
 		setToken(_token);
 		setProposals(newProposal);
@@ -86,21 +86,36 @@ export const Dapp = () => {
 		else {
 
 			if( chairperson === curUser) {
-				console.log("its chairperson ", stats["voted"])
-				await token.vote(proposal);
 				
-				alert("Congrats. Your vote has been accepted")
-				window.location.reload();
-				//await refreshProposal()
+				token.vote(proposal).then(function(result) {
+					provider.getTransactionReceipt(result["hash"]).then(function(res){
+						console.log(res)
+						console.log("state ", res["status"])
+						if(res["status"] === 1) {
+							window.location.reload();
+						}
+					})
+	
+				})
+
 			}
 			else {
 		
 				if(stats["weight"]  === 1) {
-					await token.vote(proposal);
-					//window.location.reload();
-					alert("Congrats. Your vote has been accepted")
-					window.location.reload();
-					//await refreshProposal()
+
+					token.vote(proposal).then(function(result) {
+						provider.getTransactionReceipt(result["hash"]).then(function(res){
+							console.log(res)
+							console.log("state ", res["status"])
+							if(res["status"] === 1) {
+								window.location.reload();
+							}
+						})
+		
+					})
+
+
+		
 				} else if(stats["weight"]  === 0) {
 					alert("You first needs to be given permission to vote.")
 				}
@@ -131,14 +146,21 @@ export const Dapp = () => {
 			console.log("addProposal ", proposalToAdd);
 			const inbytes = ethers.utils.formatBytes32String(proposalToAdd);
 			console.log("addProposal inbytes ", inbytes);
-			await token.addProposal(inbytes);
-			const newProposal = await token.getAllProposals();
-			console.log(newProposal)
-			alert("New proposal has been added")
-			window.location.reload();
+		//	await token.addProposal(inbytes);
+			token.addProposal(inbytes).then(function(result) {
+				provider.getTransactionReceipt(result["hash"]).then(function(res){
+					console.log(res)
+					console.log("state ", res["status"])
+					if(res["status"] === 1) {
+						window.location.reload();
+					}
+				})
+
+			})
+
 		} catch (err) {
 			console.log(err);
-			//setVoterStatus('An error has occured');
+
 		}
 	};
 
