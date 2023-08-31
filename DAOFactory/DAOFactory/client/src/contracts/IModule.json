@@ -1,0 +1,288 @@
+{
+  "contractName": "IModule",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "getCode",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "dao",
+          "type": "address"
+        },
+        {
+          "internalType": "address",
+          "name": "member",
+          "type": "address"
+        }
+      ],
+      "name": "addDao",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.8.9+commit.e5eed63a\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"address\",\"name\":\"dao\",\"type\":\"address\"},{\"internalType\":\"address\",\"name\":\"member\",\"type\":\"address\"}],\"name\":\"addDao\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getCode\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"\",\"type\":\"string\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"author\":\"chixx.eth & mourad\",\"kind\":\"dev\",\"methods\":{\"addDao(address,address)\":{\"params\":{\"dao\":\"address of the dao\",\"member\":\"address of the user of the dao in this case the owner of the dao\"}}},\"title\":\"IModule\",\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{\"addDao(address,address)\":{\"notice\":\"link a dao to SimpleDonationsModule\"}},\"notice\":\"Interface for module\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"project:/contracts/Modules/Interfaces/IModule.sol\":\"IModule\"},\"evmVersion\":\"byzantium\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"project:/contracts/Data.sol\":{\"keccak256\":\"0x2f09a3899b9918ab50bc4d3188f1b608335fdbd51d47bd83fc7f0b78f6a544a1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://51cf8668146744c257d310a58a4e5790cfa969aaaa18d838eb85923c0e7c7cbe\",\"dweb:/ipfs/QmWgLngmpgHouneWV7E8kLrrnz47FgMDP952Vmb1ZR8te3\"]},\"project:/contracts/Modules/Interfaces/IModule.sol\":{\"keccak256\":\"0x8c6e66317c9438320fed504fdbf5ab4a9ae8d101723cf4e4a7a7ac806d37bbf2\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://dcc1fca43139c2c762b259478b669177068d245141544f2fb0552447cd9d5fee\",\"dweb:/ipfs/QmPUFwX84pKG1QKmCtu5twXCXLTSxDhZ3RVSkgz3n1cb5F\"]}},\"version\":1}",
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "immutableReferences": {},
+  "generatedSources": [],
+  "deployedGeneratedSources": [],
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.9;\n\nimport \"../../Data.sol\";\n\n/**\n* @title IModule\n* @author chixx.eth & mourad\n* @notice Interface for module\n*/\ninterface IModule {\n\n  function getCode() external view returns(string memory);\n\n  /**\n  * @notice link a dao to SimpleDonationsModule\n  * @param dao address of the dao\n  * @param member address of the user of the dao in this case the owner of the dao\n  */\n  function addDao(address dao, address member) external;\n}",
+  "sourcePath": "/Users/wasim/Documents/GitHub/VotingDAO/DAOFactory/DAOFactory/contracts/Modules/Interfaces/IModule.sol",
+  "ast": {
+    "absolutePath": "project:/contracts/Modules/Interfaces/IModule.sol",
+    "exportedSymbols": {
+      "Data": [
+        69
+      ],
+      "IModule": [
+        87
+      ]
+    },
+    "id": 88,
+    "license": "MIT",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 71,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".9"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "32:23:1"
+      },
+      {
+        "absolutePath": "project:/contracts/Data.sol",
+        "file": "../../Data.sol",
+        "id": 72,
+        "nameLocation": "-1:-1:-1",
+        "nodeType": "ImportDirective",
+        "scope": 88,
+        "sourceUnit": 70,
+        "src": "57:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "IModule",
+        "contractDependencies": [],
+        "contractKind": "interface",
+        "documentation": {
+          "id": 73,
+          "nodeType": "StructuredDocumentation",
+          "src": "83:83:1",
+          "text": " @title IModule\n @author chixx.eth & mourad\n @notice Interface for module"
+        },
+        "fullyImplemented": false,
+        "id": 87,
+        "linearizedBaseContracts": [
+          87
+        ],
+        "name": "IModule",
+        "nameLocation": "177:7:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "functionSelector": "ea879634",
+            "id": 78,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getCode",
+            "nameLocation": "199:7:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 74,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "206:2:1"
+            },
+            "returnParameters": {
+              "id": 77,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 76,
+                  "mutability": "mutable",
+                  "name": "",
+                  "nameLocation": "-1:-1:-1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 78,
+                  "src": "231:13:1",
+                  "stateVariable": false,
+                  "storageLocation": "memory",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_string_memory_ptr",
+                    "typeString": "string"
+                  },
+                  "typeName": {
+                    "id": 75,
+                    "name": "string",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "231:6:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_string_storage_ptr",
+                      "typeString": "string"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "230:15:1"
+            },
+            "scope": 87,
+            "src": "190:56:1",
+            "stateMutability": "view",
+            "virtual": false,
+            "visibility": "external"
+          },
+          {
+            "documentation": {
+              "id": 79,
+              "nodeType": "StructuredDocumentation",
+              "src": "250:173:1",
+              "text": " @notice link a dao to SimpleDonationsModule\n @param dao address of the dao\n @param member address of the user of the dao in this case the owner of the dao"
+            },
+            "functionSelector": "12ee7e41",
+            "id": 86,
+            "implemented": false,
+            "kind": "function",
+            "modifiers": [],
+            "name": "addDao",
+            "nameLocation": "435:6:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 84,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 81,
+                  "mutability": "mutable",
+                  "name": "dao",
+                  "nameLocation": "450:3:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "442:11:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 80,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "442:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 83,
+                  "mutability": "mutable",
+                  "name": "member",
+                  "nameLocation": "463:6:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 86,
+                  "src": "455:14:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 82,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "455:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "441:29:1"
+            },
+            "returnParameters": {
+              "id": 85,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "479:0:1"
+            },
+            "scope": 87,
+            "src": "426:54:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "external"
+          }
+        ],
+        "scope": 88,
+        "src": "167:315:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "32:450:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.8.9+commit.e5eed63a.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "3.4.15",
+  "updatedAt": "2023-08-31T18:03:20.096Z",
+  "devdoc": {
+    "author": "chixx.eth & mourad",
+    "kind": "dev",
+    "methods": {
+      "addDao(address,address)": {
+        "params": {
+          "dao": "address of the dao",
+          "member": "address of the user of the dao in this case the owner of the dao"
+        }
+      }
+    },
+    "title": "IModule",
+    "version": 1
+  },
+  "userdoc": {
+    "kind": "user",
+    "methods": {
+      "addDao(address,address)": {
+        "notice": "link a dao to SimpleDonationsModule"
+      }
+    },
+    "notice": "Interface for module",
+    "version": 1
+  }
+}
