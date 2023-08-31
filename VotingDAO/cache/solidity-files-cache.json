@@ -35,6 +35,40 @@
       "artifacts": [
         "Ballot"
       ]
+    },
+    "/Users/wasim/Documents/GitHub/VotingDAO/VotingDAO/contracts/Ballot.sol": {
+      "lastModificationDate": 1693498644226,
+      "contentHash": "29d2a0e9e0fe2d8d3dda2b6bd18183fe",
+      "sourceName": "contracts/Ballot.sol",
+      "solcConfig": {
+        "version": "0.8.4",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.4"
+      ],
+      "artifacts": [
+        "Ballot"
+      ]
     }
   }
 }

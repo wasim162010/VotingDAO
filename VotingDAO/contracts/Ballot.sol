@@ -28,31 +28,9 @@ contract Ballot {
     // A dynamically-sized array of `Proposal` structs.
     Proposal[] public proposals;
 
-    /// Create a new ballot to choose one of `proposalNames`.
-  
-    /*
-    constructor(bytes32[] memory proposalNames) {
-        
-        chairperson = msg.sender;
-        voters[chairperson].weight = 1;
-
-        // For each of the provided proposal names,
-        // create a new proposal object and add it
-        // to the end of the array.
-        for (uint256 i = 0; i < proposalNames.length; i++) {
-            // `Proposal({...})` creates a temporary
-            // Proposal object and `proposals.push(...)`
-            // appends it to the end of `proposals`.
-            proposals.push(Proposal({name: proposalNames[i], voteCount: 0}));
-        }
-    }
-    */
-    
-
-
     constructor() {
         chairperson = msg.sender;
-       // voters[chairperson].weight = 1;
+        voters[chairperson].weight = 1;
 
     }
    
@@ -167,6 +145,7 @@ contract Ballot {
         winnerName_ = proposals[winningProposal()].name;
     }
 
+    //Fetch voter details based on the address
     function getVoterStats(address voterAddr) external view returns(Voter memory) {
         return voters[voterAddr];
     }

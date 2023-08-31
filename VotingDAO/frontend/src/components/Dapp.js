@@ -34,8 +34,7 @@ export const Dapp = () => {
 		const _provider = new ethers.providers.Web3Provider(window.ethereum);
 
 		const _token = new ethers.Contract(
-			contractAddress.Token,
-		//	TokenArtifact.abi,
+			contractAddress.Ballot,
 			TokenArtifact,
 			_provider.getSigner(0)
 		);
@@ -73,16 +72,41 @@ export const Dapp = () => {
 
 		console.log("voteProposal ", proposal)
 		console.log("provider.getSigner().getAddress() ", await provider.getSigner().getAddress())
+
 		const curUser = await provider.getSigner().getAddress();
-		const stats = await token.voters(curUser);
-		console.log("stats[voted] ", stats["voted"])
 		const chairperson = await token.chairperson()
 		
-		if(stats["voted"]  == false) {
-			await token.vote(proposal);
-			window.location.reload();
-		} else {
-			console.log("User has already casted his vote")
+		const stats = await token.voters(curUser);
+		console.log("stats[voted] ", stats["voted"])
+
+		if(stats["voted"]) {
+			alert("The voter has already voted.")
+		}
+
+		else {
+
+			if( chairperson === curUser) {
+				console.log("its chairperson ", stats["voted"])
+				await token.vote(proposal);
+				
+				alert("Congrats. Your vote has been accepted")
+				window.location.reload();
+				//await refreshProposal()
+			}
+			else {
+		
+				if(stats["weight"]  === 1) {
+					await token.vote(proposal);
+					//window.location.reload();
+					alert("Congrats. Your vote has been accepted")
+					window.location.reload();
+					//await refreshProposal()
+				} else if(stats["weight"]  === 0) {
+					alert("You first needs to be given permission to vote.")
+				}
+	
+			}
+
 		}
 		
 	};
@@ -97,6 +121,11 @@ export const Dapp = () => {
 			setVoterStatus('An error has occured');
 		}
 	};
+
+	const refreshProposal = async () => {
+		const newProposal = await token.getAllProposals();
+		setProposals(newProposal);
+	}
 	const addProposal = async () => {
 		try {
 			console.log("addProposal ", proposalToAdd);
@@ -116,8 +145,23 @@ export const Dapp = () => {
 	// It gives the right to vote to a new address
 	const addNewVoter = async () => {
 		try {
-			await token.giveRightToVote(newVoter);
-			setNewVoterStatus('Success');
+			//const curUser = await provider.getSigner().getAddress();
+			console.log("addNewVoter newVoter ", newVoter)
+			const chairperson = await token.chairperson()
+			const stats = await token.voters(newVoter);
+			if(stats["voted"]) {
+				alert("User has already voted.")
+			}
+			if(newVoter === chairperson) {
+				alert("User are a Admin. You already have rights to vote")
+			}
+			else{
+				await token.giveRightToVote(newVoter);
+				setNewVoterStatus('Success');
+				alert("User has been given right to vote")
+			}
+
+			
 		} catch (err) {
 			console.log("addNewVoter ", err);
 			setNewVoterStatus('An error has occured');
