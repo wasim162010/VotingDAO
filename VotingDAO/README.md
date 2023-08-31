@@ -29,11 +29,15 @@ npx hardhat node
 
 ```bash
 npx hardhat run script/deploy.js --network localhost
+
+
 ```
 
 3. Run the frontend *(New Tab Terminal)*
 
 `/vote-system/frontend`
+
+Post deployment of the smart contract , mention the smart contract address in '/vote-system/frontend/src/ABI/contract-address.json'
 
 ```bash
 yarn install
