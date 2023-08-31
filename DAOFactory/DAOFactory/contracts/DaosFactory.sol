@@ -10,7 +10,7 @@ import './Data.sol';
 
 /**
 * @title DaosFactory
-* @notice Smart contract for MY-DAO create/save daos, add/activate modules
+* @notice Smart contract for DAOFactory create/save daos, add/activate modules
 */
 contract DaosFactory is Ownable {
 
